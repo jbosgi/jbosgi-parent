@@ -211,6 +211,24 @@
   <profiles>
   
     <!--
+      Name: distro
+      Desc: Build the distribution
+    -->
+    <profile>
+      <id>distro</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <skipTests>true</skipTests>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    
+    <!--
       Name: no-jboss-bind-address
       Desc: Set the default jboss.bind.address
     -->
