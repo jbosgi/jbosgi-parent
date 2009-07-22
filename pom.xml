@@ -10,7 +10,7 @@
   <url>http://www.jboss.org/community/wiki/JBossOSGi</url>
   <description>JBossOSGi</description>
 
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <!-- Properties -->
   <properties>
