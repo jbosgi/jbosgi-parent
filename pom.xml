@@ -314,19 +314,19 @@
     </profile>
 
     <!--
-      Name: framework-knopflerfish
-      Descr: Setup for Knopflerfish framework integration testing
+      Name: framework-jbossmc
+      Descr: Setup for JBossMC framework integration testing
     -->
     <profile>
-      <id>framework-knopflerfish</id>
+      <id>framework-jbossmc</id>
       <activation>
         <property>
           <name>framework</name>
-          <value>knopflerfish</value>
+          <value>jbossmc</value>
         </property>
       </activation>
       <properties>
-        <jboss.osgi.framework.properties>jboss-osgi-knopflerfish.properties</jboss.osgi.framework.properties>
+        <jboss.osgi.framework.properties>jboss-osgi-jbossmc.properties</jboss.osgi.framework.properties>
       </properties>
     </profile>
     
@@ -347,17 +347,6 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
               <systemProperties>
-                <!--
-                  You can copy these properties in Eclipse to debug example tests
-                  
-                  -Djava.protocol.handler.pkgs=org.jboss.net.protocol|org.jboss.virtual.protocol
-                  -Djndi.server.port=1199
-                  -Dlog4j.output.dir=${workspace_loc:jboss-osgi-testsuite-example/target}
-                  -Dorg.apache.xerces.xni.parser.XMLParserConfiguration=org.apache.xerces.parsers.XIncludeAwareParserConfiguration
-                  -Djboss.osgi.framework.properties=jboss-osgi-felix.properties
-                  -Dorg.jboss.osgi.husky.Invoker=org.jboss.osgi.husky.internal.OSGiInvoker
-                  -Dtest.archive.directory=${workspace_loc:jboss-osgi-testsuite-example/target}/test-libs
-                -->
                 <property>
                   <name>java.protocol.handler.pkgs</name>
                   <value>org.jboss.net.protocol|org.jboss.virtual.protocol</value>
