@@ -230,24 +230,6 @@
   <profiles>
   
     <!--
-      Name: distro
-      Desc: Build the distribution
-    -->
-    <profile>
-      <id>distro</id>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-              <skipTests>true</skipTests>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    
-    <!--
       Name: no-jboss-bind-address
       Desc: Set the default jboss.bind.address
     -->
@@ -260,51 +242,6 @@
       </activation>
       <properties>
         <jboss.bind.address>localhost</jboss.bind.address>
-      </properties>
-    </profile>
-    
-    <!--
-      Name: framework-felix 
-      Descr: Setup for Felix framework integration testing
-    -->
-    <profile>
-      <id>framework-felix</id>
-      <activation>
-        <property>
-          <name>framework</name>
-          <value>felix</value>
-        </property>
-      </activation>
-      <properties>
-        <jboss.osgi.framework.properties>jboss-osgi-felix.properties</jboss.osgi.framework.properties>
-      </properties>
-    </profile>
-    <profile>
-      <id>framework-default</id>
-      <activation>
-        <property>
-          <name>!framework</name>
-        </property>
-      </activation>
-      <properties>
-        <jboss.osgi.framework.properties>jboss-osgi-felix.properties</jboss.osgi.framework.properties>
-      </properties>
-    </profile>
-
-    <!--
-      Name: framework-equinox
-      Descr: Setup for Equinox framework integration testing
-    -->
-    <profile>
-      <id>framework-equinox</id>
-      <activation>
-        <property>
-          <name>framework</name>
-          <value>equinox</value>
-        </property>
-      </activation>
-      <properties>
-        <jboss.osgi.framework.properties>jboss-osgi-equinox.properties</jboss.osgi.framework.properties>
       </properties>
     </profile>
     
@@ -367,15 +304,6 @@
           <name>target.container</name>
         </property>
       </activation>
-      <dependencies>
-        <dependency>
-          <groupId>org.jboss.jbossas</groupId>
-          <artifactId>jboss-as-client</artifactId>
-          <version>5.0.1.GA</version>
-          <scope>test</scope>
-          <type>pom</type>
-        </dependency>
-      </dependencies>
       <build>
         <plugins>
           <plugin>
