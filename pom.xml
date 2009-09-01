@@ -264,22 +264,6 @@
     </profile>
     
     <!--
-      Name: framework-default 
-      Descr: Setup for default framework integration testing
-    -->
-    <profile>
-      <id>framework-default</id>
-      <activation>
-        <property>
-          <name>!framework</name>
-        </property>
-      </activation>
-      <properties>
-        <jboss.osgi.framework.properties>jboss-osgi-felix.properties</jboss.osgi.framework.properties>
-      </properties>
-    </profile>
-
-    <!--
       Name: framework-felix 
       Descr: Setup for Felix framework integration testing
     -->
@@ -289,6 +273,17 @@
         <property>
           <name>framework</name>
           <value>felix</value>
+        </property>
+      </activation>
+      <properties>
+        <jboss.osgi.framework.properties>jboss-osgi-felix.properties</jboss.osgi.framework.properties>
+      </properties>
+    </profile>
+    <profile>
+      <id>framework-default</id>
+      <activation>
+        <property>
+          <name>!framework</name>
         </property>
       </activation>
       <properties>
@@ -310,23 +305,6 @@
       </activation>
       <properties>
         <jboss.osgi.framework.properties>jboss-osgi-equinox.properties</jboss.osgi.framework.properties>
-      </properties>
-    </profile>
-
-    <!--
-      Name: framework-jbossmc
-      Descr: Setup for JBossMC framework integration testing
-    -->
-    <profile>
-      <id>framework-jbossmc</id>
-      <activation>
-        <property>
-          <name>framework</name>
-          <value>jbossmc</value>
-        </property>
-      </activation>
-      <properties>
-        <jboss.osgi.framework.properties>jboss-osgi-jbossmc.properties</jboss.osgi.framework.properties>
       </properties>
     </profile>
     
