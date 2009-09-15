@@ -17,6 +17,7 @@
     <version.aqute.bnd>0.0.323</version.aqute.bnd>
     <version.jboss.logging>2.0.5.GA</version.jboss.logging>
     <version.junit>4.6</version.junit>
+    <surefire.argline.parent>-Djava.security.manager -Djava.security.policy=${project.build.directory}/test-classes/tst.policy</surefire.argline.parent>
   </properties>
 
   <!-- DependencyManagement -->
@@ -309,15 +310,8 @@
           <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
-              <argLine>-Djava.security.manager -Djava.security.policy=${project.build.directory}/test-classes/tst.policy</argLine>
+              <argLine>${surefire.argline.parent}</argLine>
               <systemProperties>
-                <property>
-                  <name>java.security.manager</name>
-                </property>
-                <property>
-                  <name>java.security.policy</name>
-                  <value>tst.policy</value>
-                </property>
                 <property>
                   <name>java.protocol.handler.pkgs</name>
                   <value>org.jboss.net.protocol|org.jboss.virtual.protocol</value>
