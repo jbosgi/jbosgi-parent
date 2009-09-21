@@ -10,7 +10,7 @@
   <url>http://www.jboss.org/community/wiki/JBossOSGi</url>
   <description>JBossOSGi</description>
 
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.2</version>
 
   <!-- Properties -->
   <properties>
@@ -65,6 +65,12 @@
               <Implementation-URL>${url}</Implementation-URL>
             </manifestEntries>
           </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <goals>deploy</goals>
         </configuration>
       </plugin>
       <plugin>
@@ -163,9 +169,9 @@
   </pluginRepositories>
 
   <scm>
-    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/jboss-osgi</connection>
-    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/jboss-osgi</developerConnection>
-    <url>http://fisheye.jboss.com/qsearch/JBossOSGi</url>
+    <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/jboss-osgi/tags/jboss-osgi-parent-1.0.2</connection>
+    <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/jboss-osgi/tags/jboss-osgi-parent-1.0.2</developerConnection>
+    <url>http://fisheye.jboss.com/qsearch/JBossOSGi/tags/jboss-osgi-parent-1.0.2</url>
   </scm>
 
   <!-- Licenses -->
