@@ -20,12 +20,7 @@
 
   <!-- DependencyManagement -->
   <dependencyManagement>
-      <dependencies>
-      <dependency>
-        <groupId>biz.aQute</groupId>
-        <artifactId>bnd</artifactId>
-        <version>${version.aqute.bnd}</version>
-      </dependency>
+    <dependencies>
       <dependency>
         <groupId>org.jboss.logging</groupId>
         <artifactId>jboss-logging-log4j</artifactId>
