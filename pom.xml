@@ -22,6 +22,7 @@
   <properties>
     <version.jboss.logging>2.0.5.GA</version.jboss.logging>
     <version.junit>4.6</version.junit>
+    <version.slf4j>1.5.8</version.slf4j>
   </properties>
 
   <!-- DependencyManagement -->
@@ -33,13 +34,23 @@
         <version>${version.jboss.logging}</version>
       </dependency>
       <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${version.slf4j}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${version.slf4j}</version>
+      </dependency>
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${version.junit}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
-  
+
   <!-- Build -->
   <build>
     <plugins>
@@ -173,15 +184,8 @@
   <!-- DistributionManagement -->
   <distributionManagement>
     <!--
-      Add this to your ~/.m2/settings.xml 
-      <servers> 
-        <server> 
-          <id>jbmuc.dyndns.org</id> 
-          <username>yourname</username> 
-          <privateKey>/home/yourname/.ssh/id_rsa</privateKey>
-          <passphrase>yourpass</passphrase> 
-        </server> 
-      </servers>
+      Add this to your ~/.m2/settings.xml <servers> <server> <id>jbmuc.dyndns.org</id> <username>yourname</username> <privateKey>/home/yourname/.ssh/id_rsa</privateKey>
+      <passphrase>yourpass</passphrase> </server> </servers>
     -->
     <repository>
       <id>repository.jboss.org</id>
@@ -201,9 +205,8 @@
       <url>scp://jbmuc.dyndns.org/var/www/html/jboss-osgi-${version.jboss.osgi}</url>
     </site>
     <!--
-      To copy the userguide run:
-      scp -r docbook/target/docbook/publish/en-US/* jbmuc.dyndns.org:/var/www/html/jboss-osgi-${version.jboss.osgi}/userguide/ 
-     -->
+      To copy the userguide run: scp -r docbook/target/docbook/publish/en-US/* jbmuc.dyndns.org:/var/www/html/jboss-osgi-${version.jboss.osgi}/userguide/
+    -->
   </distributionManagement>
 
   <!-- Reporting -->
@@ -221,7 +224,7 @@
 
   <!-- Profiles -->
   <profiles>
-  
+
     <!--
       Name: no-jboss-bind-address
       Desc: Set the default jboss.bind.address
@@ -237,7 +240,7 @@
         <jboss.bind.address>localhost</jboss.bind.address>
       </properties>
     </profile>
-    
+
   </profiles>
-  
+
 </project>
