@@ -20,7 +20,7 @@
 
   <!-- Properties -->
   <properties>
-    <version.jboss.logging>2.0.5.GA</version.jboss.logging>
+    <version.jboss.logging>2.1.0.GA</version.jboss.logging>
     <version.junit>4.6</version.junit>
     <version.slf4j>1.5.8</version.slf4j>
   </properties>
