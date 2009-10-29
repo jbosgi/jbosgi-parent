@@ -12,22 +12,29 @@
 
   <version>1.0.4-SNAPSHOT</version>
 
+  <!-- Properties -->
+  <properties>
+    <version.aqute.bnd>0.0.356</version.aqute.bnd>
+    <version.jboss.logging>2.1.0.GA</version.jboss.logging>
+    <version.junit>4.6</version.junit>
+    <version.slf4j>1.5.8</version.slf4j>
+  </properties>
+
+  <!-- Subversion -->
   <scm>
     <connection>scm:svn:http://anonsvn.jboss.org/repos/jbossas/projects/jboss-osgi/projects/parent/trunk</connection>
     <developerConnection>scm:svn:https://svn.jboss.org/repos/jbossas/projects/jboss-osgi/projects/parent/trunk</developerConnection>
     <url>http://fisheye.jboss.com/qsearch/JBossOSGi</url>
   </scm>
 
-  <!-- Properties -->
-  <properties>
-    <version.jboss.logging>2.1.0.GA</version.jboss.logging>
-    <version.junit>4.6</version.junit>
-    <version.slf4j>1.5.8</version.slf4j>
-  </properties>
-
   <!-- DependencyManagement -->
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>biz.aQute</groupId>
+        <artifactId>bnd</artifactId>
+        <version>${version.aqute.bnd}</version>
+      </dependency>
       <dependency>
         <groupId>org.jboss.logging</groupId>
         <artifactId>jboss-logging-log4j</artifactId>
