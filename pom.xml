@@ -191,8 +191,16 @@
   <!-- DistributionManagement -->
   <distributionManagement>
     <!--
-      Add this to your ~/.m2/settings.xml <servers> <server> <id>jbmuc.dyndns.org</id> <username>yourname</username> <privateKey>/home/yourname/.ssh/id_rsa</privateKey>
-      <passphrase>yourpass</passphrase> </server> </servers>
+      Add this to your ~/.m2/settings.xml
+       
+      <servers> 
+       <server> 
+        <id>jbmuc.dyndns.org</id> 
+        <username>yourname</username> 
+        <privateKey>/home/yourname/.ssh/id_rsa</privateKey>
+        <passphrase>yourpass</passphrase> 
+       </server>
+      </servers>
     -->
     <repository>
       <id>repository.jboss.org</id>
