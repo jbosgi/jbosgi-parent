@@ -17,7 +17,6 @@
     <version.aqute.bnd>0.0.356</version.aqute.bnd>
     <version.jboss.logging>2.1.0.GA</version.jboss.logging>
     <version.junit>4.6</version.junit>
-    <version.slf4j>1.5.8</version.slf4j>
   </properties>
 
   <!-- Subversion -->
@@ -37,18 +36,13 @@
       </dependency>
       <dependency>
         <groupId>org.jboss.logging</groupId>
-        <artifactId>jboss-logging-log4j</artifactId>
+        <artifactId>jboss-logging-spi</artifactId>
         <version>${version.jboss.logging}</version>
       </dependency>
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${version.slf4j}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${version.slf4j}</version>
+        <groupId>org.jboss.logging</groupId>
+        <artifactId>jboss-logging-log4j</artifactId>
+        <version>${version.jboss.logging}</version>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -157,13 +151,6 @@
       </releases>
       <snapshots>
         <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>aQute</id>
-      <url>http://www.aQute.biz/repo</url>
-      <snapshots>
-        <enabled>false</enabled>
       </snapshots>
     </repository>
   </repositories>
