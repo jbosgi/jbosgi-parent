@@ -198,17 +198,6 @@
       <name>JBoss Snapshot Repository</name>
       <url>dav:https://snapshots.jboss.org/maven2</url>
     </snapshotRepository>
-    <!--
-      To do a site deploy run:
-      mvn -Dversion.jboss.osgi=1.0.x site-deploy
-     -->
-    <site>
-      <id>jbmuc.dyndns.org</id>
-      <url>scp://jbmuc.dyndns.org/var/www/html/jboss-osgi-${version.jboss.osgi}</url>
-    </site>
-    <!--
-      To copy the userguide run: scp -r docbook/target/docbook/publish/en-US/* jbmuc.dyndns.org:/var/www/html/jboss-osgi-${version.jboss.osgi}/userguide/
-    -->
   </distributionManagement>
 
   <!-- Reporting -->
