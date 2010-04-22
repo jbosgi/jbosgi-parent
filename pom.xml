@@ -26,7 +26,8 @@
     <version.junit>4.6</version.junit>
 
     <!-- plugin versions -->
-    <version.maven.bundle.plugin>2.0.1</version.maven.bundle.plugin>
+    <version.bundle.plugin>2.0.1</version.bundle.plugin>
+    <version.build.helper.plugin>1.5</version.build.helper.plugin>
   </properties>
 
   <!-- Subversion -->
@@ -134,9 +135,14 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${version.build.helper.plugin}</version>
+        </plugin>
+        <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>${version.maven.bundle.plugin}</version>
+          <version>${version.bundle.plugin}</version>
           <extensions>true</extensions>
         </plugin>
       </plugins>
