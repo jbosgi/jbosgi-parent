@@ -6,11 +6,18 @@
   <groupId>org.jboss.osgi</groupId>
   <artifactId>jboss-osgi-parent</artifactId>
   <packaging>pom</packaging>
+  
+  <version>1.0.6-SNAPSHOT</version>
 
+  <!-- Parent -->
+  <parent>
+    <groupId>org.jboss</groupId>
+    <artifactId>jboss-parent</artifactId>
+    <version>5</version>
+  </parent>
+  
   <url>http://www.jboss.org/community/wiki/JBossOSGi</url>
   <description>JBossOSGi</description>
-
-  <version>1.0.6-SNAPSHOT</version>
 
   <!-- Properties -->
   <properties>
@@ -58,8 +65,8 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
+          <source>1.6</source>
+          <target>1.6</target>
           <showDeprecation>true</showDeprecation>
           <showWarnings>true</showWarnings>
           <optimize>true</optimize>
@@ -132,39 +139,6 @@
     </pluginManagement>
   </build>
 
-  <!-- Repositories -->
-  <repositories>
-    <repository>
-      <id>repository.jboss.org</id>
-      <name>JBoss Repository</name>
-      <url>http://repository.jboss.org/maven2/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>snapshots.jboss.org</id>
-      <name>JBoss Snapshots Repository</name>
-      <url>http://snapshots.jboss.org/maven2/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-
-  <!-- PluginRepositories -->
-  <pluginRepositories>
-    <pluginRepository>
-      <id>repository.jboss.org</id>
-      <url>http://repository.jboss.org/maven2</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
 
   <!-- Licenses -->
   <licenses>
@@ -174,31 +148,6 @@
       </url>
     </license>
   </licenses>
-
-  <!-- DistributionManagement -->
-  <distributionManagement>
-    <!--
-      Add this to your ~/.m2/settings.xml
-       
-      <servers> 
-       <server> 
-        <id>jbmuc.dyndns.org</id> 
-        <username>yourname</username> 
-        <privateKey>/home/yourname/.ssh/id_rsa</privateKey>
-        <passphrase>yourpass</passphrase> 
-       </server>
-      </servers>
-    -->
-    <repository>
-      <id>repository.jboss.org</id>
-      <url>file://${maven.repository.root}</url>
-    </repository>
-    <snapshotRepository>
-      <id>snapshots.jboss.org</id>
-      <name>JBoss Snapshot Repository</name>
-      <url>dav:https://snapshots.jboss.org/maven2</url>
-    </snapshotRepository>
-  </distributionManagement>
 
   <!-- Reporting -->
   <reporting>
