@@ -204,21 +204,6 @@
     </license>
   </licenses>
 
-  <!-- Reporting -->
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${version.javadoc.plugin}</version>
-        <configuration>
-          <show>protected</show>
-          <excludePackageNames>*.internal:*.incubator</excludePackageNames>
-        </configuration>
-      </plugin>
-    </plugins>
-  </reporting>
-
   <!-- Profiles -->
   <profiles>
 
