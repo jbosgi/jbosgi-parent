@@ -32,9 +32,12 @@
     <version.bundle.plugin>2.0.1</version.bundle.plugin>
     <version.build.helper.plugin>1.5</version.build.helper.plugin>
     <version.compiler.plugin>2.3.1</version.compiler.plugin>
+    <version.deploy.plugin>2.5</version.deploy.plugin>
+    <version.install.plugin>2.3</version.install.plugin>
     <version.javadoc.plugin>2.7</version.javadoc.plugin>
     <version.jar.plugin>2.3.1</version.jar.plugin>
     <version.release.plugin>2.0</version.release.plugin>
+    <version.resources.plugin>2.4</version.resources.plugin>
     <version.source.plugin>2.1.2</version.source.plugin>
     <version.surefire.plugin>2.5</version.surefire.plugin>
     
@@ -116,6 +119,16 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.deploy.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${version.jar.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${version.jar.plugin}</version>
         </plugin>
@@ -123,6 +136,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
           <version>${version.release.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${version.resources.plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
