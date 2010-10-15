@@ -28,7 +28,7 @@
     <version.log4j>1.2.14</version.log4j>
 
     <!-- plugin versions -->
-    <version.antrun.plugin>1.3</version.antrun.plugin>
+    <version.antrun.plugin>1.6</version.antrun.plugin>
     <version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
     <version.bundle.plugin>2.0.1</version.bundle.plugin>
     <version.build.helper.plugin>1.5</version.build.helper.plugin>
