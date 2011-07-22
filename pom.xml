@@ -9,23 +9,13 @@
   
   <version>1.0.10-SNAPSHOT</version>
 
-  <!-- Parent - ->
-  <parent>
-    <groupId>org.jboss</groupId>
-    <artifactId>jboss-parent</artifactId>
-    <version>5</version>
-  </parent>
-  -->
-  
-  <url>http://www.jboss.org/community/wiki/JBossOSGi</url>
+  <url>http://www.jboss.org/jbossas/osgi</url>
   <description>JBossOSGi</description>
 
   <!-- Properties -->
   <properties>
-    <version.aqute.bnd>0.0.356</version.aqute.bnd>
     <version.jboss.logging>3.0.0.Beta3</version.jboss.logging>
     <version.junit>4.8.1</version.junit>
-    <version.log4j>1.2.14</version.log4j>
 
     <!-- plugin versions -->
     <version.antrun.plugin>1.6</version.antrun.plugin>
@@ -61,19 +51,9 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>biz.aQute</groupId>
-        <artifactId>bnd</artifactId>
-        <version>${version.aqute.bnd}</version>
-      </dependency>
-      <dependency>
         <groupId>org.jboss.logging</groupId>
         <artifactId>jboss-logging</artifactId>
         <version>${version.jboss.logging}</version>
-      </dependency>
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${version.log4j}</version>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
