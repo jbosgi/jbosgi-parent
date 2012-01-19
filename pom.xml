@@ -12,6 +12,13 @@
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
 
+    <!-- Developers -->
+    <developers>
+        <developer>
+            <name>JBOSGi committers</name>
+        </developer>
+    </developers>
+
     <!-- Properties -->
     <properties>
         <version.aqute.bnd>0.0.356</version.aqute.bnd>
