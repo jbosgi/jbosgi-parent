@@ -16,7 +16,6 @@
     <!-- Properties -->
     <properties>
         <version.aqute.bnd>0.0.356</version.aqute.bnd>
-        <version.junit>4.8.1</version.junit>
 
         <!-- plugin versions -->
         <version.antrun.plugin>1.6</version.antrun.plugin>
@@ -57,11 +56,6 @@
                 <groupId>biz.aQute</groupId>
                 <artifactId>bnd</artifactId>
                 <version>${version.aqute.bnd}</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${version.junit}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
