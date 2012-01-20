@@ -2,7 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>JBossOSGi</name>
+    <name>JBossOSGi Parent</name>
+
     <groupId>org.jboss.osgi</groupId>
     <artifactId>jboss-osgi-parent</artifactId>
     <packaging>pom</packaging>
@@ -23,29 +24,32 @@
     <properties>
         <version.aqute.bnd>0.0.356</version.aqute.bnd>
 
-        <!-- plugin versions -->
-        <version.antrun.plugin>1.6</version.antrun.plugin>
-        <version.assembly.plugin>2.2-beta-5</version.assembly.plugin>
-        <version.bundle.plugin>2.0.1</version.bundle.plugin>
-        <version.build.helper.plugin>1.5</version.build.helper.plugin>
-        <version.compiler.plugin>2.3.1</version.compiler.plugin>
-        <version.deploy.plugin>2.5</version.deploy.plugin>
-        <version.install.plugin>2.3</version.install.plugin>
-        <version.javadoc.plugin>2.7</version.javadoc.plugin>
-        <version.jar.plugin>2.3.1</version.jar.plugin>
-        <version.release.plugin>2.0</version.release.plugin>
-        <version.resources.plugin>2.4</version.resources.plugin>
+        <!-- core plugins from maven-3.0.3 -->
+        <version.clean.plugin>2.4.1</version.clean.plugin>
+        <version.compiler.plugin>2.3.2</version.compiler.plugin>
+        <version.deploy.plugin>2.7</version.deploy.plugin>
+        <version.install.plugin>2.3.1</version.install.plugin>
+        <version.resources.plugin>2.5</version.resources.plugin>
+        <version.surefire.plugin>2.11</version.surefire.plugin>
+        <!-- packaging types -->
+        <version.bundle.plugin>2.3.6</version.bundle.plugin>
+        <version.jar.plugin>2.3.2</version.jar.plugin>
+        <!-- reporting plugins -->
+        <version.javadoc.plugin>2.8</version.javadoc.plugin>
+        <!-- tools -->
+        <version.antrun.plugin>1.7</version.antrun.plugin>
+        <version.assembly.plugin>2.2.2</version.assembly.plugin>
+        <version.release.plugin>2.2.2</version.release.plugin>
         <version.source.plugin>2.1.2</version.source.plugin>
-        <version.surefire.plugin>2.5</version.surefire.plugin>
+        <!-- codehaus -->
+        <version.build.helper.plugin>1.7</version.build.helper.plugin>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Distribution Management settings -->
-        <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/
-        </jboss.releases.repo.url>
-        <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/
-        </jboss.snapshots.repo.url>
+        <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2</jboss.releases.repo.url>
+        <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots</jboss.snapshots.repo.url>
     </properties>
 
     <!-- Source -->
@@ -88,6 +92,11 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${version.clean.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${version.compiler.plugin}</version>
                 </plugin>
@@ -99,7 +108,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>${version.jar.plugin}</version>
+                    <version>${version.install.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
