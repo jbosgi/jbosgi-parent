@@ -39,7 +39,10 @@
         <!-- tools -->
         <version.antrun.plugin>1.7</version.antrun.plugin>
         <version.assembly.plugin>2.2.2</version.assembly.plugin>
-        <version.release.plugin>2.2.2</version.release.plugin>
+        <!-- [MRELEASE-730] release:prepare cannot find dependent artefact 
+             http://jira.codehaus.org/browse/MRELEASE-730
+        -->
+        <version.release.plugin>2.2.1</version.release.plugin>
         <version.source.plugin>2.1.2</version.source.plugin>
         <!-- codehaus -->
         <version.build.helper.plugin>1.7</version.build.helper.plugin>
