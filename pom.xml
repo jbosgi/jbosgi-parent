@@ -22,8 +22,6 @@
 
     <!-- Properties -->
     <properties>
-        <version.aqute.bnd>0.0.356</version.aqute.bnd>
-
         <!-- core plugins from maven-3.0.3 -->
         <version.clean.plugin>2.4.1</version.clean.plugin>
         <version.compiler.plugin>2.3.2</version.compiler.plugin>
@@ -61,17 +59,6 @@
         <developerConnection>scm:git:git@github.com:jbosgi/jbosgi-parent.git</developerConnection>
         <url>http://github.com/jbosgi/jbosgi-parent</url>
     </scm>
-
-    <!-- DependencyManagement -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>biz.aQute</groupId>
-                <artifactId>bnd</artifactId>
-                <version>${version.aqute.bnd}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <!-- Build -->
     <build>
