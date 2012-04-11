@@ -8,7 +8,7 @@
     <artifactId>jboss-osgi-parent</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.0.19-SNAPSHOT</version>
+    <version>1.0.19</version>
 
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
@@ -156,7 +156,7 @@
                 							<goal>single</goal>
                 						</goals>
                 					</pluginExecutionFilter>
-                					<action><ignore/></action>
+                					<action><ignore /></action>
                 				</pluginExecution>
                                 <pluginExecution>
                                     <pluginExecutionFilter>
@@ -167,7 +167,7 @@
                                             <goal>run</goal>
                                         </goals>
                                     </pluginExecutionFilter>
-                					<action><ignore/></action>
+                					<action><ignore /></action>
                                 </pluginExecution>
                                 <pluginExecution>
                                 	<pluginExecutionFilter>
@@ -178,7 +178,7 @@
                                 			<goal>copy</goal>
                                 		</goals>
                                 	</pluginExecutionFilter>
-                					<action><ignore/></action>
+                					<action><ignore /></action>
                                 </pluginExecution>
                 			</pluginExecutions>
                 		</lifecycleMappingMetadata>
