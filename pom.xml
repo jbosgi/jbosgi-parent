@@ -156,7 +156,7 @@
                 							<goal>single</goal>
                 						</goals>
                 					</pluginExecutionFilter>
-                					<action><ignore /></action>
+                					<action><ignore/></action>
                 				</pluginExecution>
                                 <pluginExecution>
                                     <pluginExecutionFilter>
@@ -167,7 +167,18 @@
                                             <goal>run</goal>
                                         </goals>
                                     </pluginExecutionFilter>
-                					<action><ignore /></action>
+                					<action><ignore/></action>
+                                </pluginExecution>
+                                <pluginExecution>
+                                	<pluginExecutionFilter>
+                                		<groupId>org.apache.maven.plugins</groupId>
+                                		<artifactId>maven-dependency-plugin</artifactId>
+                                		<versionRange>[2.1,)</versionRange>
+                                		<goals>
+                                			<goal>copy</goal>
+                                		</goals>
+                                	</pluginExecutionFilter>
+                					<action><ignore/></action>
                                 </pluginExecution>
                 			</pluginExecutions>
                 		</lifecycleMappingMetadata>
