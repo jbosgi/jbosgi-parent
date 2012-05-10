@@ -254,6 +254,12 @@
         </license>
     </licenses>
 
+	<!-- Organization -->
+	<organization>
+		<name>JBoss by Red Hat</name>
+		<url>http://www.jboss.org</url>
+	</organization>
+	
     <!-- Distribution Management -->
     <distributionManagement>
         <repository>
