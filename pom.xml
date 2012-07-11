@@ -58,7 +58,7 @@
         <version.source.plugin>2.1.2</version.source.plugin>
         <!-- codehaus -->
         <version.build.helper.plugin>1.7</version.build.helper.plugin>
-        <version.license.plugin>1.0-beta-3</version.license.plugin>
+        <version.license.plugin>1.2</version.license.plugin>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
