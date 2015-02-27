@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <name>JBossOSGi Parent</name>
@@ -13,12 +14,12 @@
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
 
-	<!-- Organization -->
-	<organization>
-		<name>JBoss by Red Hat</name>
-		<url>http://www.jboss.org</url>
-	</organization>
-	
+    <!-- Organization -->
+    <organization>
+        <name>JBoss by Red Hat</name>
+        <url>http://www.jboss.org</url>
+    </organization>
+
     <!-- Licenses -->
     <licenses>
         <license>
@@ -34,34 +35,62 @@
         </developer>
     </developers>
 
+    <prerequisites>
+        <maven>3.0.3</maven>
+    </prerequisites>
+
     <!-- Properties -->
     <properties>
-        <!-- core plugins from maven-3.0.5 -->
-        <version.clean.plugin>2.5</version.clean.plugin>
-        <version.compiler.plugin>3.1</version.compiler.plugin>
-        <version.deploy.plugin>2.7</version.deploy.plugin>
-        <version.install.plugin>2.4</version.install.plugin>
-        <version.resources.plugin>2.6</version.resources.plugin>
-        <version.surefire.plugin>2.15</version.surefire.plugin>
+        <!-- core plugins from maven-3.2.5 -->
+        <version.clean.plugin>2.6.1</version.clean.plugin>
+        <version.compiler.plugin>3.2</version.compiler.plugin>
+        <version.deploy.plugin>2.8.2</version.deploy.plugin>
+        <version.install.plugin>2.5.2</version.install.plugin>
+        <version.resources.plugin>2.7</version.resources.plugin>
+        <version.surefire.plugin>2.18.1</version.surefire.plugin>
         <!-- packaging types -->
-        <version.bundle.plugin>2.4.0</version.bundle.plugin>
-        <version.jar.plugin>2.4</version.jar.plugin>
+        <version.bundle.plugin>2.5.3</version.bundle.plugin>
+        <version.jar.plugin>2.5</version.jar.plugin>
         <!-- reporting plugins -->
-        <version.javadoc.plugin>2.9</version.javadoc.plugin>
+        <version.javadoc.plugin>2.10.1</version.javadoc.plugin>
         <!-- tools -->
-        <version.antrun.plugin>1.7</version.antrun.plugin>
-        <version.assembly.plugin>2.4</version.assembly.plugin>
-        <!-- [MRELEASE-730] release:prepare cannot find dependent artefact 
-             http://jira.codehaus.org/browse/MRELEASE-730
-        -->
-        <version.release.plugin>2.4</version.release.plugin>
-        <version.source.plugin>2.2.1</version.source.plugin>
+        <version.antrun.plugin>1.8</version.antrun.plugin>
+        <version.assembly.plugin>2.5.3</version.assembly.plugin>
+        <version.release.plugin>2.5.1</version.release.plugin>
+        <version.source.plugin>2.4</version.source.plugin>
         <!-- codehaus -->
-        <version.build.helper.plugin>1.8</version.build.helper.plugin>
-        <version.license.plugin>1.5</version.license.plugin>
+        <version.build.helper.plugin>1.9.1</version.build.helper.plugin>
+        <version.license.plugin>1.8</version.license.plugin>
 
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Arquillian Toolset -->
+        <version.jboss.arquillian.core>1.1.5.Final</version.jboss.arquillian.core>
+        <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
+
+        <!-- Testing -->
+        <version.junit>4.11</version.junit>
+        <version.mockito>1.10.17</version.mockito>
+        <version.jboss.shrinkwrap>1.2.2</version.jboss.shrinkwrap>
+        <version.slf4j>1.7.9</version.slf4j>
+
+        <!-- WILDFLY release-synchronized versions -->
+        <version.jboss.wildfly>8.2.0.Final</version.jboss.wildfly>
+        <version.jboss.wildfly.stable>8.2.0.Final</version.jboss.wildfly.stable>
+        <version.jboss.logging>3.1.4.GA</version.jboss.logging>
+        <version.jboss.logging.processor>1.2.0.Final</version.jboss.logging.processor>
+        <version.jboss.logmanager>1.5.2.Final</version.jboss.logmanager>
+        <version.jboss.modules>1.3.3.Final</version.jboss.modules>
+        <version.jboss.msc>1.2.2.Final</version.jboss.msc>
+        <version.jboss.vfs>3.2.5.Final</version.jboss.vfs>
+
+        <!-- Java EE Specs -->
+        <version.jboss.javaee>1.0.2.Final</version.jboss.javaee>
+
+        <!-- OSGI -->
+        <version.osgi>5.0.0</version.osgi>
 
         <!-- Distribution Management settings -->
         <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2</jboss.releases.repo.url>
@@ -73,8 +102,161 @@
         <connection>scm:git:git://github.com/jbosgi/jbosgi-parent.git</connection>
         <developerConnection>scm:git:git@github.com:jbosgi/jbosgi-parent.git</developerConnection>
         <url>http://github.com/jbosgi/jbosgi-parent</url>
-      <tag>1.0.24</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
+    <!-- DependencyManagement -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Arquillian -->
+            <dependency>
+                <groupId>org.jboss.arquillian.junit</groupId>
+                <artifactId>arquillian-junit-container</artifactId>
+                <version>${version.jboss.arquillian.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-container-osgi</artifactId>
+                <version>${version.jboss.arquillian.osgi}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.container</groupId>
+                <artifactId>arquillian-container-jbosgi-embedded</artifactId>
+                <version>${version.jboss.arquillian.osgi}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.osgi</groupId>
+                <artifactId>arquillian-osgi-bundle</artifactId>
+                <version>${version.jboss.arquillian.osgi}</version>
+            </dependency>
+
+            <!-- JBoss Components -->
+            <dependency>
+                <groupId>org.jboss.modules</groupId>
+                <artifactId>jboss-modules</artifactId>
+                <version>${version.jboss.modules}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging</artifactId>
+                <version>${version.jboss.logging}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logging</groupId>
+                <artifactId>jboss-logging-processor</artifactId>
+                <version>${version.jboss.logging.processor}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.logmanager</groupId>
+                <artifactId>jboss-logmanager</artifactId>
+                <version>${version.jboss.logmanager}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss</groupId>
+                <artifactId>jboss-vfs</artifactId>
+                <version>${version.jboss.vfs}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.msc</groupId>
+                <artifactId>jboss-msc</artifactId>
+                <version>${version.jboss.msc}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-impl-base</artifactId>
+                <version>${version.jboss.shrinkwrap}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- Java EE Spec -->
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>${version.jboss.javaee}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- OSGI -->
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.core</artifactId>
+                <version>${version.osgi}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.enterprise</artifactId>
+                <version>${version.osgi}</version>
+            </dependency>
+
+            <!-- WildFly -->
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-arquillian-common</artifactId>
+                <version>${version.jboss.wildfly}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-arquillian-container-managed</artifactId>
+                <version>${version.jboss.wildfly}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-arquillian-container-remote</artifactId>
+                <version>${version.jboss.wildfly}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-testsuite-shared</artifactId>
+                <version>${version.jboss.wildfly}</version>
+            </dependency>
+
+            <!-- org.mockito -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${version.mockito}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- SLF4J -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${version.slf4j}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${version.slf4j}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-jdk14</artifactId>
+                <version>${version.slf4j}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- JUnit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.jboss.arquillian.core}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <!-- Build -->
     <build>
@@ -151,34 +333,36 @@
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${version.build.helper.plugin}</version>
                 </plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>license-maven-plugin</artifactId>
-					<version>${version.license.plugin}</version>
-				</plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>${version.license.plugin}</version>
+                </plugin>
                 <!--
                 	This plugin's configuration is used to store Eclipse m2e settings only. 
                 	It has no influence on the Maven build itself.
                 -->
                 <plugin>
-                	<groupId>org.eclipse.m2e</groupId>
-                	<artifactId>lifecycle-mapping</artifactId>
-                	<version>1.0.0</version>
-                	<configuration>
-                		<lifecycleMappingMetadata>
-                			<pluginExecutions>
-                				<pluginExecution>
-                					<pluginExecutionFilter>
-                						<groupId>org.apache.maven.plugins</groupId>
-                						<artifactId>maven-assembly-plugin</artifactId>
-                						<versionRange>[2.2.2,)</versionRange>
-                						<goals>
-                							<goal>directory-single</goal>
-                							<goal>single</goal>
-                						</goals>
-                					</pluginExecutionFilter>
-                					<action><ignore /></action>
-                				</pluginExecution>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-assembly-plugin</artifactId>
+                                        <versionRange>[2.2.2,)</versionRange>
+                                        <goals>
+                                            <goal>directory-single</goal>
+                                            <goal>single</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
                                 <pluginExecution>
                                     <pluginExecutionFilter>
                                         <groupId>org.apache.maven.plugins</groupId>
@@ -188,22 +372,26 @@
                                             <goal>run</goal>
                                         </goals>
                                     </pluginExecutionFilter>
-                					<action><ignore /></action>
+                                    <action>
+                                        <ignore />
+                                    </action>
                                 </pluginExecution>
                                 <pluginExecution>
-                                	<pluginExecutionFilter>
-                                		<groupId>org.apache.maven.plugins</groupId>
-                                		<artifactId>maven-dependency-plugin</artifactId>
-                                		<versionRange>[2.1,)</versionRange>
-                                		<goals>
-                                			<goal>copy</goal>
-                                		</goals>
-                                	</pluginExecutionFilter>
-                					<action><ignore /></action>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-dependency-plugin</artifactId>
+                                        <versionRange>[2.1,)</versionRange>
+                                        <goals>
+                                            <goal>copy</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
                                 </pluginExecution>
-                			</pluginExecutions>
-                		</lifecycleMappingMetadata>
-                	</configuration>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -211,8 +399,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
                     <optimize>true</optimize>
@@ -258,14 +446,14 @@
                     <failIfNoTests>false</failIfNoTests>
                 </configuration>
             </plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-				<configuration>
-					<licenseName>lgpl_v2_1</licenseName>
-					<inceptionYear>2010</inceptionYear>
-				</configuration>
-			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <configuration>
+                    <licenseName>lgpl_v2_1</licenseName>
+                    <inceptionYear>2010</inceptionYear>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
