@@ -49,9 +49,9 @@
         <version.surefire.plugin>2.18.1</version.surefire.plugin>
         <!-- packaging types -->
         <version.bundle.plugin>2.5.3</version.bundle.plugin>
-        <version.jar.plugin>2.5</version.jar.plugin>
+        <version.jar.plugin>2.6</version.jar.plugin>
         <!-- reporting plugins -->
-        <version.javadoc.plugin>2.10.1</version.javadoc.plugin>
+        <version.javadoc.plugin>2.10.2</version.javadoc.plugin>
         <!-- tools -->
         <version.antrun.plugin>1.8</version.antrun.plugin>
         <version.assembly.plugin>2.5.3</version.assembly.plugin>
@@ -66,12 +66,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Arquillian Toolset -->
-        <version.jboss.arquillian.core>1.1.5.Final</version.jboss.arquillian.core>
+        <version.jboss.arquillian.core>1.1.7.Final</version.jboss.arquillian.core>
         <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
         <version.junit>4.11</version.junit>
-        <version.mockito>1.10.17</version.mockito>
+        <version.mockito>1.10.19</version.mockito>
         <version.jboss.shrinkwrap>1.2.2</version.jboss.shrinkwrap>
         <version.slf4j>1.7.9</version.slf4j>
 
