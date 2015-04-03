@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <name>JBossOSGi Parent</name>
@@ -50,6 +51,7 @@
         <!-- packaging types -->
         <version.bundle.plugin>2.5.3</version.bundle.plugin>
         <version.jar.plugin>2.6</version.jar.plugin>
+        <version.dependency.plugin>2.10</version.dependency.plugin>
         <!-- reporting plugins -->
         <version.javadoc.plugin>2.10.2</version.javadoc.plugin>
         <!-- tools -->
@@ -107,6 +109,13 @@
     <!-- DependencyManagement -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.jboss.arquillian.core}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!-- Arquillian -->
             <dependency>
@@ -246,14 +255,6 @@
                 <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
-
-            <dependency>
-                <groupId>org.jboss.arquillian</groupId>
-                <artifactId>arquillian-bom</artifactId>
-                <version>${version.jboss.arquillian.core}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -301,6 +302,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.jar.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${version.dependency.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
