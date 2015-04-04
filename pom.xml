@@ -8,7 +8,7 @@
     <artifactId>jbosgi-parent</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.0.25</version>
+    <version>1.0.26</version>
 
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
@@ -49,9 +49,10 @@
         <version.surefire.plugin>2.18.1</version.surefire.plugin>
         <!-- packaging types -->
         <version.bundle.plugin>2.5.3</version.bundle.plugin>
-        <version.jar.plugin>2.5</version.jar.plugin>
+        <version.jar.plugin>2.6</version.jar.plugin>
+        <version.dependency.plugin>2.10</version.dependency.plugin>
         <!-- reporting plugins -->
-        <version.javadoc.plugin>2.10.1</version.javadoc.plugin>
+        <version.javadoc.plugin>2.10.2</version.javadoc.plugin>
         <!-- tools -->
         <version.antrun.plugin>1.8</version.antrun.plugin>
         <version.assembly.plugin>2.5.3</version.assembly.plugin>
@@ -66,12 +67,12 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Arquillian Toolset -->
-        <version.jboss.arquillian.core>1.1.5.Final</version.jboss.arquillian.core>
-        <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
+        <version.jboss.arquillian.core>1.1.7.Final</version.jboss.arquillian.core>
+        <version.jboss.arquillian.osgi>2.1.0.Final-SNAPSHOT</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
         <version.junit>4.11</version.junit>
-        <version.mockito>1.10.17</version.mockito>
+        <version.mockito>1.10.19</version.mockito>
         <version.jboss.shrinkwrap>1.2.2</version.jboss.shrinkwrap>
         <version.slf4j>1.7.9</version.slf4j>
 
@@ -101,12 +102,19 @@
         <connection>scm:git:git://github.com/jbosgi/jbosgi-parent.git</connection>
         <developerConnection>scm:git:git@github.com:jbosgi/jbosgi-parent.git</developerConnection>
         <url>http://github.com/jbosgi/jbosgi-parent</url>
-        <tag>1.0.25</tag>
+        <tag>1.0.26</tag>
     </scm>
 
     <!-- DependencyManagement -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>${version.jboss.arquillian.core}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!-- Arquillian -->
             <dependency>
@@ -246,14 +254,6 @@
                 <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
-
-            <dependency>
-                <groupId>org.jboss.arquillian</groupId>
-                <artifactId>arquillian-bom</artifactId>
-                <version>${version.jboss.arquillian.core}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -301,6 +301,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.jar.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${version.dependency.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
