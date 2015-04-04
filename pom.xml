@@ -69,7 +69,7 @@
 
         <!-- Arquillian Toolset -->
         <version.jboss.arquillian.core>1.1.7.Final</version.jboss.arquillian.core>
-        <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
+        <version.jboss.arquillian.osgi>2.1.0.Final-SNAPSHOT</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
         <version.junit>4.11</version.junit>
