@@ -8,7 +8,7 @@
     <artifactId>jbosgi-parent</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.0.26</version>
+    <version>1.0.27</version>
 
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
@@ -68,7 +68,7 @@
 
         <!-- Arquillian Toolset -->
         <version.jboss.arquillian.core>1.1.7.Final</version.jboss.arquillian.core>
-        <version.jboss.arquillian.osgi>2.1.0.Final-SNAPSHOT</version.jboss.arquillian.osgi>
+        <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
         <version.junit>4.11</version.junit>
@@ -102,7 +102,7 @@
         <connection>scm:git:git://github.com/jbosgi/jbosgi-parent.git</connection>
         <developerConnection>scm:git:git@github.com:jbosgi/jbosgi-parent.git</developerConnection>
         <url>http://github.com/jbosgi/jbosgi-parent</url>
-        <tag>1.0.26</tag>
+        <tag>1.0.27</tag>
     </scm>
 
     <!-- DependencyManagement -->
