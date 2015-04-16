@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <name>JBossOSGi Parent</name>
@@ -58,6 +59,7 @@
         <version.assembly.plugin>2.5.3</version.assembly.plugin>
         <version.release.plugin>2.5.1</version.release.plugin>
         <version.source.plugin>2.4</version.source.plugin>
+        <version.org.jacoco>0.7.4.201502262128</version.org.jacoco>
         <!-- codehaus -->
         <version.build.helper.plugin>1.9.1</version.build.helper.plugin>
         <version.license.plugin>1.8</version.license.plugin>
@@ -65,9 +67,12 @@
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
 
         <!-- Arquillian Toolset -->
         <version.jboss.arquillian.core>1.1.7.Final</version.jboss.arquillian.core>
+        <version.jboss.arquillian.jacoco>1.0.0.Alpha7</version.jboss.arquillian.jacoco>
         <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
@@ -116,26 +121,67 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- Java EE Spec -->
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>${version.jboss.javaee}</version>
+                <type>pom</type>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- JUnit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${version.junit}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- org.mockito -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${version.mockito}</version>
+                <scope>test</scope>
+            </dependency>
+
             <!-- Arquillian -->
             <dependency>
                 <groupId>org.jboss.arquillian.junit</groupId>
                 <artifactId>arquillian-junit-container</artifactId>
                 <version>${version.jboss.arquillian.core}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
                 <artifactId>arquillian-container-osgi</artifactId>
                 <version>${version.jboss.arquillian.osgi}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
                 <artifactId>arquillian-container-jbosgi-embedded</artifactId>
                 <version>${version.jboss.arquillian.osgi}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.arquillian.osgi</groupId>
                 <artifactId>arquillian-osgi-bundle</artifactId>
                 <version>${version.jboss.arquillian.osgi}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jacoco</groupId>
+                <artifactId>org.jacoco.core</artifactId>
+                <version>${version.org.jacoco}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.arquillian.extension</groupId>
+                <artifactId>arquillian-jacoco</artifactId>
+                <version>${version.jboss.arquillian.jacoco}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- JBoss Components -->
@@ -176,15 +222,6 @@
                 <scope>test</scope>
             </dependency>
 
-            <!-- Java EE Spec -->
-            <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-7.0</artifactId>
-                <version>${version.jboss.javaee}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- OSGI -->
             <dependency>
                 <groupId>org.osgi</groupId>
@@ -202,28 +239,24 @@
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-arquillian-common</artifactId>
                 <version>${version.jboss.wildfly}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-arquillian-container-managed</artifactId>
                 <version>${version.jboss.wildfly}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-arquillian-container-remote</artifactId>
                 <version>${version.jboss.wildfly}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.wildfly</groupId>
                 <artifactId>wildfly-testsuite-shared</artifactId>
                 <version>${version.jboss.wildfly}</version>
-            </dependency>
-
-            <!-- org.mockito -->
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-all</artifactId>
-                <version>${version.mockito}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -244,14 +277,6 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-jdk14</artifactId>
                 <version>${version.slf4j}</version>
-                <scope>test</scope>
-            </dependency>
-
-            <!-- JUnit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${version.junit}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
@@ -393,6 +418,20 @@
                                         <ignore />
                                     </action>
                                 </pluginExecution>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.jacoco</groupId>
+                                        <artifactId>jacoco-maven-plugin</artifactId>
+                                        <versionRange>[0.1.0,)</versionRange>
+                                        <goals>
+                                            <goal>prepare-agent</goal>
+                                            <goal>prepare-agent-integration</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
                             </pluginExecutions>
                         </lifecycleMappingMetadata>
                     </configuration>
@@ -403,8 +442,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                     <showDeprecation>true</showDeprecation>
                     <showWarnings>true</showWarnings>
                     <optimize>true</optimize>
@@ -449,6 +488,34 @@
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
                     <failIfNoTests>false</failIfNoTests>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${version.org.jacoco}</version>
+                <executions>
+                    <execution>
+                        <id>agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                        <configuration>
+                            <destFile>${project.build.directory}/jacoco.exec</destFile>
+                            <append>true</append>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                        <configuration>
+                            <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-combined</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
