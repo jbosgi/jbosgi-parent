@@ -100,6 +100,8 @@
         <!-- Distribution Management settings -->
         <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2</jboss.releases.repo.url>
         <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots</jboss.snapshots.repo.url>
+
+        <argLine></argLine>
     </properties>
 
     <!-- Source -->
@@ -485,6 +487,7 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+                    <argLine>@{jacocoArgLine} ${argLine}</argLine>
                     <redirectTestOutputToFile>false</redirectTestOutputToFile>
                     <failIfNoTests>false</failIfNoTests>
                 </configuration>
@@ -516,6 +519,9 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <propertyName>jacocoArgLine</propertyName>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
