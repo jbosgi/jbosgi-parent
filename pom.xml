@@ -8,7 +8,7 @@
     <artifactId>jbosgi-parent</artifactId>
     <packaging>pom</packaging>
 
-    <version>1.0.29-SNAPSHOT</version>
+    <version>2.0.1-SNAPSHOT</version>
 
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
@@ -35,7 +35,7 @@
     </developers>
 
     <prerequisites>
-        <maven>3.0.3</maven>
+        <maven>3.3.1</maven>
     </prerequisites>
 
     <!-- Properties -->
@@ -58,7 +58,7 @@
         <version.assembly.plugin>2.5.3</version.assembly.plugin>
         <version.release.plugin>2.5.1</version.release.plugin>
         <version.source.plugin>2.4</version.source.plugin>
-        <version.org.jacoco>0.7.4.201502262128</version.org.jacoco>
+        <version.org.jacoco>0.7.5.201505241946</version.org.jacoco>
         <!-- codehaus -->
         <version.build.helper.plugin>1.9.1</version.build.helper.plugin>
         <version.license.plugin>1.8</version.license.plugin>
@@ -70,28 +70,26 @@
         <maven.compiler.source>1.7</maven.compiler.source>
 
         <!-- Arquillian Toolset -->
-        <version.jboss.arquillian.core>1.1.7.Final</version.jboss.arquillian.core>
-        <version.jboss.arquillian.jacoco>1.0.0.Alpha7</version.jboss.arquillian.jacoco>
+        <version.jboss.arquillian.core>1.1.8.Final</version.jboss.arquillian.core>
+        <version.jboss.arquillian.jacoco>1.0.0.Alpha8</version.jboss.arquillian.jacoco>
         <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
-        <version.junit>4.11</version.junit>
         <version.mockito>1.10.19</version.mockito>
         <version.jboss.shrinkwrap>1.2.2</version.jboss.shrinkwrap>
         <version.slf4j>1.7.9</version.slf4j>
 
         <!-- WILDFLY release-synchronized versions -->
-        <version.jboss.wildfly>8.2.0.Final</version.jboss.wildfly>
-        <version.jboss.wildfly.stable>8.2.0.Final</version.jboss.wildfly.stable>
-        <version.jboss.logging>3.1.4.GA</version.jboss.logging>
+        <version.jboss.wildfly>9.0.1.Final</version.jboss.wildfly>
+        <version.jboss.logging>3.2.1.Final</version.jboss.logging>
         <version.jboss.logging.processor>1.2.0.Final</version.jboss.logging.processor>
-        <version.jboss.logmanager>1.5.2.Final</version.jboss.logmanager>
-        <version.jboss.modules>1.3.3.Final</version.jboss.modules>
-        <version.jboss.msc>1.2.2.Final</version.jboss.msc>
-        <version.jboss.vfs>3.2.5.Final</version.jboss.vfs>
+        <version.jboss.logmanager>2.0.0.Final</version.jboss.logmanager>
+        <version.jboss.modules>1.4.3.Final</version.jboss.modules>
+        <version.jboss.msc>1.2.6.Final</version.jboss.msc>
+        <version.jboss.vfs>3.2.9.Final</version.jboss.vfs>
 
         <!-- Java EE Specs -->
-        <version.jboss.javaee>1.0.2.Final</version.jboss.javaee>
+        <version.jboss.javaee>1.0.3.Final</version.jboss.javaee>
 
         <!-- OSGI -->
         <version.osgi>5.0.0</version.osgi>
@@ -121,22 +119,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
-            <!-- Java EE Spec -->
             <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-7.0</artifactId>
-                <version>${version.jboss.javaee}</version>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>jboss-javaee-7.0-wildfly-with-tools</artifactId>
+                <version>${version.jboss.wildfly}</version>
                 <type>pom</type>
-                <scope>provided</scope>
-            </dependency>
-
-            <!-- JUnit -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${version.junit}</version>
-                <scope>test</scope>
+                <scope>import</scope>
             </dependency>
 
             <!-- org.mockito -->
@@ -243,19 +231,19 @@
 
             <!-- WildFly -->
             <dependency>
-                <groupId>org.wildfly</groupId>
+                <groupId>org.wildfly.arquillian</groupId>
                 <artifactId>wildfly-arquillian-common</artifactId>
                 <version>${version.jboss.wildfly}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wildfly</groupId>
+                <groupId>org.wildfly.arquillian</groupId>
                 <artifactId>wildfly-arquillian-container-managed</artifactId>
                 <version>${version.jboss.wildfly}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wildfly</groupId>
+                <groupId>org.wildfly.arquillian</groupId>
                 <artifactId>wildfly-arquillian-container-remote</artifactId>
                 <version>${version.jboss.wildfly}</version>
                 <scope>test</scope>
