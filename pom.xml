@@ -8,7 +8,7 @@
     <artifactId>jbosgi-parent</artifactId>
     <packaging>pom</packaging>
 
-    <version>2.0.1</version>
+    <version>3.0.1-SNAPSHOT</version>
 
     <url>http://www.jboss.org/jbossas/osgi</url>
     <description>JBossOSGi</description>
@@ -111,7 +111,7 @@
         <connection>scm:git:git://github.com/jbosgi/jbosgi-parent.git</connection>
         <developerConnection>scm:git:git@github.com:jbosgi/jbosgi-parent.git</developerConnection>
         <url>http://github.com/jbosgi/jbosgi-parent</url>
-        <tag>2.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <!-- DependencyManagement -->
