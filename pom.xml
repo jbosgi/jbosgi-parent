@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <name>JBossOSGi Parent</name>
@@ -40,27 +41,28 @@
 
     <!-- Properties -->
     <properties>
-        <!-- core plugins from maven-3.2.5 -->
-        <version.clean.plugin>2.6.1</version.clean.plugin>
-        <version.compiler.plugin>3.2</version.compiler.plugin>
+        <!-- core plugins -->
+        <version.clean.plugin>3.0.0</version.clean.plugin>
+        <version.compiler.plugin>3.5.1</version.compiler.plugin>
         <version.deploy.plugin>2.8.2</version.deploy.plugin>
         <version.install.plugin>2.5.2</version.install.plugin>
         <version.resources.plugin>2.7</version.resources.plugin>
-        <version.surefire.plugin>2.18.1</version.surefire.plugin>
+        <version.surefire.plugin>2.19.1</version.surefire.plugin>
         <!-- packaging types -->
-        <version.bundle.plugin>2.5.3</version.bundle.plugin>
+        <version.bundle.plugin>3.0.1</version.bundle.plugin>
         <version.jar.plugin>2.6</version.jar.plugin>
         <version.dependency.plugin>2.10</version.dependency.plugin>
         <!-- reporting plugins -->
-        <version.javadoc.plugin>2.10.2</version.javadoc.plugin>
+        <version.javadoc.plugin>2.10.3</version.javadoc.plugin>
+        <version.enforcer.plugin>1.4.1</version.enforcer.plugin>
         <!-- tools -->
         <version.antrun.plugin>1.8</version.antrun.plugin>
-        <version.assembly.plugin>2.5.3</version.assembly.plugin>
-        <version.release.plugin>2.5.1</version.release.plugin>
-        <version.source.plugin>2.4</version.source.plugin>
-        <version.org.jacoco>0.7.5.201505241946</version.org.jacoco>
+        <version.assembly.plugin>2.6</version.assembly.plugin>
+        <version.release.plugin>2.5.3</version.release.plugin>
+        <version.source.plugin>3.0.0</version.source.plugin>
+        <version.org.jacoco>0.7.6.201602180812</version.org.jacoco>
         <!-- codehaus -->
-        <version.build.helper.plugin>1.9.1</version.build.helper.plugin>
+        <version.build.helper.plugin>1.10</version.build.helper.plugin>
         <version.license.plugin>1.8</version.license.plugin>
 
         <!-- Cross plugins settings -->
@@ -70,17 +72,21 @@
         <maven.compiler.source>1.7</maven.compiler.source>
 
         <!-- Arquillian Toolset -->
-        <version.jboss.arquillian.core>1.1.8.Final</version.jboss.arquillian.core>
+        <version.jboss.arquillian.core>1.1.11.Final</version.jboss.arquillian.core>
         <version.jboss.arquillian.jacoco>1.0.0.Alpha8</version.jboss.arquillian.jacoco>
-        <version.jboss.arquillian.osgi>2.1.0.CR18</version.jboss.arquillian.osgi>
+        <version.jboss.arquillian.osgi>2.1.0.Final</version.jboss.arquillian.osgi>
 
         <!-- Testing -->
         <version.mockito>1.10.19</version.mockito>
-        <version.jboss.shrinkwrap>1.2.2</version.jboss.shrinkwrap>
+        <version.maven-aether-provider>3.2.5</version.maven-aether-provider>
+        <version.shrinkwrap.resolvers>2.2.2</version.shrinkwrap.resolvers>
+        <version.shrinkwrap>1.2.3</version.shrinkwrap>
         <version.slf4j>1.7.9</version.slf4j>
+        <version.wildfly.arquillian>1.1.0.Beta2</version.wildfly.arquillian>
 
         <!-- WILDFLY release-synchronized versions -->
-        <version.jboss.wildfly>9.0.1.Final</version.jboss.wildfly>
+        <version.jboss.wildfly>9.0.2.Final</version.jboss.wildfly>
+        <version.jboss.javaee.7.0.spec>1.0.3.Final</version.jboss.javaee.7.0.spec>
         <version.jboss.logging>3.2.1.Final</version.jboss.logging>
         <version.jboss.logging.processor>1.2.0.Final</version.jboss.logging.processor>
         <version.jboss.logmanager>2.0.0.Final</version.jboss.logmanager>
@@ -113,6 +119,25 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-aether-provider</artifactId>
+                <version>${version.maven-aether-provider}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap.resolver</groupId>
+                <artifactId>shrinkwrap-resolver-bom</artifactId>
+                <version>${version.shrinkwrap.resolvers}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.shrinkwrap</groupId>
+                <artifactId>shrinkwrap-bom</artifactId>
+                <version>${version.shrinkwrap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
                 <version>${version.jboss.arquillian.core}</version>
@@ -120,11 +145,72 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.wildfly.bom</groupId>
-                <artifactId>jboss-javaee-7.0-wildfly-with-tools</artifactId>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-common</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-embedded</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-managed</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-remote</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-common-domain</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-domain-managed</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-container-domain-remote</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-protocol-jmx</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly.arquillian</groupId>
+                <artifactId>wildfly-arquillian-testenricher-msc</artifactId>
+                <version>${version.wildfly.arquillian}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-parent</artifactId>
                 <version>${version.jboss.wildfly}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.spec</groupId>
+                <artifactId>jboss-javaee-7.0</artifactId>
+                <version>${version.jboss.javaee.7.0.spec}</version>
+                <type>pom</type>
+                <scope>provided</scope>
             </dependency>
 
             <!-- org.mockito -->
@@ -210,12 +296,6 @@
                 <version>${version.jboss.msc}</version>
                 <scope>provided</scope>
             </dependency>
-            <dependency>
-                <groupId>org.jboss.shrinkwrap</groupId>
-                <artifactId>shrinkwrap-impl-base</artifactId>
-                <version>${version.jboss.shrinkwrap}</version>
-                <scope>test</scope>
-            </dependency>
 
             <!-- OSGI -->
             <dependency>
@@ -227,32 +307,6 @@
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.enterprise</artifactId>
                 <version>${version.osgi}</version>
-            </dependency>
-
-            <!-- WildFly -->
-            <dependency>
-                <groupId>org.wildfly.arquillian</groupId>
-                <artifactId>wildfly-arquillian-common</artifactId>
-                <version>${version.jboss.wildfly}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.arquillian</groupId>
-                <artifactId>wildfly-arquillian-container-managed</artifactId>
-                <version>${version.jboss.wildfly}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly.arquillian</groupId>
-                <artifactId>wildfly-arquillian-container-remote</artifactId>
-                <version>${version.jboss.wildfly}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wildfly</groupId>
-                <artifactId>wildfly-testsuite-shared</artifactId>
-                <version>${version.jboss.wildfly}</version>
-                <scope>test</scope>
             </dependency>
 
             <!-- SLF4J -->
@@ -281,6 +335,26 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${version.enforcer.plugin}</version>
+                    <executions>
+                        <execution>
+                            <id>enforce-java</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireJavaVersion>
+                                        <version>[1.7,)</version>
+                                    </requireJavaVersion>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
@@ -362,10 +436,8 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <version>${version.license.plugin}</version>
                 </plugin>
-                <!--
-                	This plugin's configuration is used to store Eclipse m2e settings only. 
-                	It has no influence on the Maven build itself.
-                -->
+                <!-- This plugin's configuration is used to store Eclipse 
+                    m2e settings only. It has no influence on the Maven build itself. -->
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
