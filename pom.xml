@@ -67,8 +67,8 @@
         <!-- Cross plugins settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 
         <!-- Arquillian Toolset -->
         <version.jboss.arquillian.core>1.1.11.Final</version.jboss.arquillian.core>
@@ -81,20 +81,18 @@
         <version.shrinkwrap.resolvers>2.2.2</version.shrinkwrap.resolvers>
         <version.shrinkwrap>1.2.3</version.shrinkwrap>
         <version.slf4j>1.7.9</version.slf4j>
-        <version.wildfly.arquillian>1.1.0.Beta2</version.wildfly.arquillian>
+        <version.wildfly.arquillian>2.0.0.Final</version.wildfly.arquillian>
 
         <!-- WILDFLY release-synchronized versions -->
-        <version.jboss.wildfly>9.0.2.Final</version.jboss.wildfly>
-        <version.jboss.javaee.7.0.spec>1.0.3.Final</version.jboss.javaee.7.0.spec>
-        <version.jboss.logging>3.2.1.Final</version.jboss.logging>
-        <version.jboss.logging.processor>1.2.0.Final</version.jboss.logging.processor>
-        <version.jboss.logmanager>2.0.0.Final</version.jboss.logmanager>
-        <version.jboss.modules>1.4.3.Final</version.jboss.modules>
+        <version.jboss.wildfly>10.0.0.Final</version.jboss.wildfly>
+        <version.jboss.logging>3.3.0.Final</version.jboss.logging>
+        <version.jboss.logging.processor>2.0.1.Final</version.jboss.logging.processor>
+        <version.jboss.logmanager>2.0.3.Final</version.jboss.logmanager>
+        <version.jboss.modules>1.5.1.Final</version.jboss.modules>
         <version.jboss.msc>1.2.6.Final</version.jboss.msc>
-        <version.jboss.vfs>3.2.9.Final</version.jboss.vfs>
-
+        <version.jboss.vfs>3.2.11.Final</version.jboss.vfs>
         <!-- Java EE Specs -->
-        <version.jboss.javaee>1.0.3.Final</version.jboss.javaee>
+        <version.jboss.javaee.7.0.spec>1.0.3.Final</version.jboss.javaee.7.0.spec>
 
         <!-- OSGI -->
         <version.osgi>5.0.0</version.osgi>
@@ -260,6 +258,11 @@
 
             <!-- JBoss Components -->
             <dependency>
+                <groupId>org.jboss.jdeparser</groupId>
+                <artifactId>jdeparser</artifactId>
+                <version>2.0.2.Final</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jboss.modules</groupId>
                 <artifactId>jboss-modules</artifactId>
                 <version>${version.jboss.modules}</version>
@@ -271,6 +274,7 @@
                 <version>${version.jboss.logging}</version>
                 <scope>provided</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.jboss.logging</groupId>
                 <artifactId>jboss-logging-processor</artifactId>
@@ -334,26 +338,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>${version.enforcer.plugin}</version>
-                    <executions>
-                        <execution>
-                            <id>enforce-java</id>
-                            <goals>
-                                <goal>enforce</goal>
-                            </goals>
-                            <configuration>
-                                <rules>
-                                    <requireJavaVersion>
-                                        <version>[1.7,)</version>
-                                    </requireJavaVersion>
-                                </rules>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-bundle-plugin</artifactId>
@@ -505,6 +489,26 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${version.enforcer.plugin}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-java</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[1.8,)</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
