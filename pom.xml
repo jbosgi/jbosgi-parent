@@ -59,7 +59,7 @@
         <version.assembly.plugin>2.6</version.assembly.plugin>
         <version.release.plugin>2.5.3</version.release.plugin>
         <version.source.plugin>3.0.0</version.source.plugin>
-        <version.org.jacoco>0.7.6.201602180812</version.org.jacoco>
+        <version.org.jacoco>0.7.7.201606060606</version.org.jacoco>
         <!-- codehaus -->
         <version.build.helper.plugin>1.10</version.build.helper.plugin>
         <version.license.plugin>1.8</version.license.plugin>
@@ -84,13 +84,13 @@
         <version.wildfly.arquillian>2.0.0.Final</version.wildfly.arquillian>
 
         <!-- WILDFLY release-synchronized versions -->
-        <version.jboss.wildfly>10.0.0.Final</version.jboss.wildfly>
+        <version.jboss.wildfly>10.1.0.Final</version.jboss.wildfly>
         <version.jboss.logging>3.3.0.Final</version.jboss.logging>
         <version.jboss.logging.processor>2.0.1.Final</version.jboss.logging.processor>
-        <version.jboss.logmanager>2.0.3.Final</version.jboss.logmanager>
-        <version.jboss.modules>1.5.1.Final</version.jboss.modules>
+        <version.jboss.logmanager>2.0.4.Final</version.jboss.logmanager>
+        <version.jboss.modules>1.5.2.Final</version.jboss.modules>
         <version.jboss.msc>1.2.6.Final</version.jboss.msc>
-        <version.jboss.vfs>3.2.11.Final</version.jboss.vfs>
+        <version.jboss.vfs>3.2.12.Final</version.jboss.vfs>
         <!-- Java EE Specs -->
         <version.jboss.javaee.7.0.spec>1.0.3.Final</version.jboss.javaee.7.0.spec>
 
